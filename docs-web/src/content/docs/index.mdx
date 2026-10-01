@@ -1,0 +1,62 @@
+---
+title: Application security testing, together
+description: Toolbox connects your browser traffic to your coding agent through Sectool, a CLI and MCP workbench for application security testing.
+template: splash
+hero:
+  title: Your traffic. A shared workbench.
+  tagline: Explore an application yourself while your coding agent inspects, replays, and analyzes the requests you capture with Sectool.
+  image:
+    alt: go-appsec Toolbox — an open red toolbox with security testing and development tools
+    file: ../../assets/toolbox.png
+  actions:
+    - text: Get started
+      link: ./getting-started/quickstart/
+      icon: right-arrow
+    - text: View on GitHub
+      link: https://github.com/go-appsec/toolbox
+      icon: external
+      variant: secondary
+---
+
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+## Human context. Agent assistance.
+
+**Toolbox** is the project; **Sectool** is its CLI and MCP server. Use it to investigate applications, explore hypotheses, and validate reports with a coding agent connected to the same captured traffic.
+
+<div className="workflow">
+  <div><strong>01 / Explore</strong><p>You handle login, browser interactions, and application context.</p></div>
+  <div><strong>02 / Investigate</strong><p>Sectool captures traffic. You and your agent inspect flows and choose what to test.</p></div>
+  <div><strong>03 / Validate</strong><p>Replay a request with a targeted change, compare the response, and assess the evidence together.</p></div>
+</div>
+
+## From captured requests to testable questions
+
+<CardGrid>
+  <Card title="Inspect real traffic" icon="magnifier">Query captured requests and responses, inspect cookies, and work from traffic produced by your authenticated browser session.</Card>
+  <Card title="Replay and compare" icon="seti:json">Modify headers, query parameters, or JSON bodies. Compare flows to examine what changed.</Card>
+  <Card title="Explore the API surface" icon="document">Extract endpoint references and available request shapes from captured JavaScript and HTML, or crawl from URLs and flows.</Card>
+  <Card title="Observe callbacks" icon="signal">Use Interactsh-backed out-of-band sessions to collect DNS, HTTP, or SMTP interactions during testing.</Card>
+</CardGrid>
+
+## Start with a single binary
+
+```bash
+go install github.com/go-appsec/toolbox/sectool@latest
+sectool mcp --proxy-port 8080 --workflow explore
+```
+
+Connect your browser to the proxy and your agent to the MCP endpoint. The [quickstart](./getting-started/quickstart/) walks through both. Prebuilt binaries are also available.
+
+The native proxy supports HTTP/1.1, HTTP/2, and WebSockets. You can also [use Burp Suite](./integrations/burp/) as the HTTP backend or attach [sidecars](./integrations/sidecars/) for additional capabilities.
+
+## Choose your next step
+
+<CardGrid>
+  <LinkCard title="Run your first session" description="Install, capture traffic, and connect an agent." href="./getting-started/quickstart/" />
+  <LinkCard title="Replay a captured request" description="Make a controlled change and compare the result." href="./guides/replay/" />
+  <LinkCard title="Explore the tools" description="See the MCP surface and its availability rules." href="./reference/mcp/" />
+  <LinkCard title="Help improve Toolbox" description="Contribute code, documentation, or reproducible reports." href="./contributing/" />
+</CardGrid>
+
+Sectool supplies testing primitives, not a guarantee of vulnerability discovery. Reflections, extracted endpoints, callback events, and agent suggestions are evidence to investigate; they do not establish impact on their own.

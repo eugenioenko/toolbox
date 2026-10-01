@@ -1,0 +1,32 @@
+---
+import { Image } from 'astro:assets';
+import { LinkButton } from '@astrojs/starlight/components';
+
+const { data } = Astro.locals.starlightRoute.entry;
+const { title = data.title, tagline, actions = [], image } = data.hero || {};
+const artwork = image && 'file' in image ? image.file : undefined;
+---
+
+<div class="hero">
+  <div class="stack">
+    <div class="copy">
+      <h1 id="_top" data-page-title set:html={title} />
+      {tagline && <p class="tagline" set:html={tagline} />}
+    </div>
+    <div class="actions">
+      {actions.map(({ text, link, icon, variant, attrs }) => (
+        <LinkButton href={link} icon={icon?.name} variant={variant} {...attrs}>{text}</LinkButton>
+      ))}
+    </div>
+  </div>
+  {artwork && (
+    <Image
+      src={artwork}
+      alt={image?.alt || ''}
+      width={artwork.width}
+      height={artwork.height}
+      loading="eager"
+      decoding="async"
+    />
+  )}
+</div>

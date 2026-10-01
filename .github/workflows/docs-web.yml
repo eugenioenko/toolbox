@@ -1,0 +1,33 @@
+name: Documentation site
+
+on:
+  pull_request:
+    paths: ['docs-web/**', '.github/workflows/docs-web.yml']
+  push:
+    paths: ['docs-web/**', '.github/workflows/docs-web.yml']
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: docs-web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          package_json_file: docs-web/package.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+          cache-dependency-path: docs-web/pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm check
+      - run: pnpm build
+      - run: pnpm check:links
+      - run: SITE_URL=https://example.com BASE_PATH=/toolbox pnpm build
+      - run: BASE_PATH=/toolbox pnpm check:links

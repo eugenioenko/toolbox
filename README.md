@@ -12,6 +12,8 @@ You handle auth and UI interactions, the agent queries flows, mutates requests, 
 
 ## Getting Started
 
+For step-by-step setup, testing guides, and tool overviews, see the [documentation site sources](docs-web/src/content/docs/index.mdx). To run the site locally, follow [docs-web/README.md](docs-web/README.md).
+
 ### 1. Install sectool
 
 ```bash
@@ -116,7 +118,7 @@ sectool crawl create --url https://example.com
 sectool crawl summary <session_id>
 
 # Replay a captured request with modifications
-sectool replay send --flow <flow_id> --add-header "X-Test: value"
+sectool replay send --flow <flow_id> --set-header "X-Test: value"
 
 # Set up out-of-band interaction testing and check for callbacks
 sectool oast create

@@ -1,0 +1,80 @@
+:root {
+  --sl-color-bg: #151b23;
+  --sl-color-bg-nav: #151b23;
+  --sl-color-bg-sidebar: #151b23;
+  --sl-color-gray-6: #151b23;
+  --sl-color-accent-low: #492809;
+  --sl-color-accent: #df6009;
+  --sl-color-accent-high: #ffb17c;
+  --sl-color-gray-7: #1c2530;
+  --purple-hsl: 24, 92%, 45%;
+  --fb-table-header-bg-color: #1c2530;
+  --fb-sidebar-color-current-bg: #492809;
+  --fb-sidebar-color-current-hover: #5a3215;
+  --fb-toc-color-current-bg: #df600920;
+  --fb-steps-bg-color: #df6009;
+  --fb-steps-text-color: #151b23;
+}
+:root[data-theme='light'] {
+  --sl-color-bg: #ffffff;
+  --sl-color-bg-nav: #ffffff;
+  --sl-color-bg-sidebar: #f4f7fa;
+  --sl-color-gray-6: #f4f7fa;
+  --sl-color-accent-low: #e3eef7;
+  --sl-color-accent: #0a3253;
+  --sl-color-accent-high: #0a3253;
+  --sl-color-gray-7: #e3eaf0;
+  --fb-table-header-bg-color: #e3eef7;
+  --fb-sidebar-color-current-bg: #e3eef7;
+  --fb-sidebar-color-current-hover: #d3e2ee;
+  --fb-toc-color-current-bg: #0a325315;
+  --fb-steps-bg-color: #0a3253;
+  --fb-steps-text-color: #ffffff;
+}
+[data-has-hero] .page { background: var(--sl-color-bg); }
+[data-has-hero] header { background: var(--sl-color-bg-nav); }
+.hero { background: var(--sl-color-bg); }
+.hero .actions .primary {
+  background: #df6009;
+  border-color: #df6009;
+  color: #151b23;
+}
+.hero .actions .secondary {
+  color: var(--sl-color-accent-high);
+  background: var(--sl-color-bg-sidebar);
+  border-color: var(--sl-color-gray-5);
+}
+.pagination-links .link-title { color: var(--sl-color-text); }
+.hero img {
+  width: min(100%, 38rem);
+  height: auto;
+  filter: none;
+}
+.hero img:hover { transform: none; filter: none; }
+.hero .tagline { margin-inline: 0; }
+@media (min-width: 72rem) {
+  .hero { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 50rem) {
+  .sl-markdown-content .card-grid { grid-template-columns: repeat(2, 1fr); }
+}
+.hero { padding-block: 3rem; }
+.hero .tagline { max-width: 42rem; }
+.hero h1 { max-width: 16ch; }
+.workflow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-block: 2rem;
+}
+.workflow > div {
+  padding: 1.25rem;
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: .75rem;
+  background: var(--sl-color-bg-sidebar);
+}
+.workflow strong { display: block; color: var(--sl-color-accent-high); }
+.workflow p { margin-top: .5rem; }
+@media (max-width: 40rem) {
+  .workflow { grid-template-columns: 1fr; }
+}
