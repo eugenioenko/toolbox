@@ -46,9 +46,10 @@
 }
 .pagination-links .link-title { color: var(--sl-color-text); }
 .hero img {
-  width: min(100%, 38rem);
+  width: min(100%, 26rem);
   height: auto;
   filter: none;
+  justify-self: center;
 }
 .hero img:hover { transform: none; filter: none; }
 .hero .tagline { margin-inline: 0; }

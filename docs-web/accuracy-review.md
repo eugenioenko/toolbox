@@ -43,7 +43,7 @@ Run `pnpm check`, `pnpm build`, and `pnpm check:links`. Repeat the build and lin
 
 Verification passed: frozen-lockfile installation, Astro Check (zero diagnostics), production builds and internal link/asset/anchor checks for root and `/toolbox` hosting. Browser checks confirmed homepage-to-quickstart navigation, working Pagefind search, canonical/social URLs, and a sitemap containing the subpath URLs. All 17 content routes returned HTTP 200 at mobile width with no horizontal overflow or JavaScript errors.
 
-Desktop/mobile inspection also confirmed dark surfaces (`#151b23`), light accents and the secondary button (`#0a3253`), and the artwork's original 1200×480 aspect ratio. This checks presentation, not the toolkit's network behavior.
+Desktop/mobile inspection also confirmed dark surfaces (`#151b23`), light accents and the secondary button (`#0a3253`), and uncropped artwork. The subsequent branding update uses the go-appsec GitHub avatar at its original 460×460 resolution for the header, favicon, and right-hand hero image. This checks presentation, not the toolkit's network behavior.
 
 Versions were checked against the package registry: Astro 7.3.5, Starlight 0.42.4, Galaxy 1.0.0, sitemap 3.7.4, Sharp 0.35.5, and Astro Check 0.9.10. TypeScript 6.0.3 is the newest release within Astro Check's supported peer range; TypeScript 7.0.2 is published but unsupported by that checker. The pnpm lockfile pins the resolved dependency graph.
 

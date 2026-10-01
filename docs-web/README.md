@@ -29,4 +29,4 @@ The root-hosted default uses `/`. Review public URLs and the upstream GitHub/edi
 
 Pages summarize the main README, contributor guidance, SDK contract, and source at the checked-out revision. The installed CLI help and advertised MCP schemas are the detailed references for a running version. `accuracy-review.md` records the review sources and known limits.
 
-The supplied Toolbox artwork is used unchanged. Dark surfaces use `#151b23`, highlights use `#df6009`, and light-theme accents use `#0a3253`. The small SVG toolbox mark is a site-specific companion icon.
+The [go-appsec GitHub avatar](https://avatars.githubusercontent.com/u/251776565) is bundled unchanged for the header logo, favicon, and right-hand homepage image. GitHub serves it at 460×460 pixels. Dark surfaces use `#151b23`, highlights use `#df6009`, and light-theme accents use `#0a3253`.
