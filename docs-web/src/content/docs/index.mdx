@@ -20,14 +20,14 @@ hero:
 
 import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
 
-## Human context. Agent assistance.
+## How it works
 
-**Toolbox** is the project; **Sectool** is its CLI and MCP server. Use it to investigate applications, explore hypotheses, and validate reports with a coding agent connected to the same captured traffic.
+Toolbox provides **Sectool**, the command-line tool that connects your browser traffic to your coding agent through MCP.
 
 <div className="workflow">
-  <div><strong>01 / Explore</strong><p>You handle login, browser interactions, and application context.</p></div>
-  <div><strong>02 / Investigate</strong><p>Sectool captures traffic. You and your agent inspect flows and choose what to test.</p></div>
-  <div><strong>03 / Validate</strong><p>Replay a request with a targeted change, compare the response, and assess the evidence together.</p></div>
+  <div><strong>1. Browse</strong><p>Sign in and use the application through Sectool’s proxy.</p></div>
+  <div><strong>2. Investigate</strong><p>You and your agent inspect captured traffic and choose what to test.</p></div>
+  <div><strong>3. Validate</strong><p>Replay modified requests, compare responses, and review the evidence together.</p></div>
 </div>
 
 ## From captured requests to testable questions
