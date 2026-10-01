@@ -5,9 +5,9 @@ import galaxy from 'starlight-theme-galaxy';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: process.env.SITE_URL,
-  base: process.env.BASE_PATH || '/',
-  integrations: [...(process.env.SITE_URL ? [sitemap()] : []), starlight({
+  site: 'https://go-appsec.github.io',
+  base: '/toolbox',
+  integrations: [sitemap(), starlight({
     title: 'Toolbox',
     description: 'Application security testing with humans and coding agents. Set up Sectool, inspect traffic, and test requests together.',
     logo: { src: './src/assets/logo.png', replacesTitle: false },

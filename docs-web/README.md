@@ -11,19 +11,18 @@ pnpm install
 pnpm dev
 pnpm check
 pnpm build
-pnpm check:links
 pnpm preview
 ```
 
 ## Hosting
 
-Deploy `dist/` to a static host after building. No production domain or deployment is configured yet. Set `SITE_URL` to the actual public origin to generate canonical URLs, social URLs, and a sitemap; set `BASE_PATH` when hosting under a subpath. For example, for a GitHub Pages project site:
+The site is configured for `https://go-appsec.github.io/toolbox/` with Astro's `site` set to `https://go-appsec.github.io` and `base` set to `/toolbox`. Canonical URLs, social URLs, assets, search, and the sitemap use that location.
 
-```bash
-SITE_URL=https://YOUR_USERNAME.github.io BASE_PATH=/toolbox pnpm build
-```
+`.github/workflows/docs-web-deploy.yml` builds and publishes `docs-web/dist/` when documentation or its workflows change on `main`, including when a pull request is merged. It can also be run manually on `main`. Publishing is restricted to `go-appsec/toolbox`; forks run the documentation checks without publishing.
 
-The root-hosted default uses `/`. Review public URLs and the upstream GitHub/edit links before launch. CI builds both root and `/toolbox` variants but does not publish the site.
+In the upstream repository, select **Settings → Pages → Build and deployment → Source → GitHub Actions** before the first deployment. The separate `docs-web.yml` workflow checks pull requests and branch pushes.
+
+Local development and preview also use `/toolbox/`, for example `http://localhost:4321/toolbox/`.
 
 ## Content accuracy
 

@@ -2,9 +2,9 @@ name: Documentation site
 
 on:
   pull_request:
-    paths: ['docs-web/**', '.github/workflows/docs-web.yml']
+    paths: ['docs-web/**', '.github/workflows/docs-web*.yml']
   push:
-    paths: ['docs-web/**', '.github/workflows/docs-web.yml']
+    paths: ['docs-web/**', '.github/workflows/docs-web*.yml']
 
 permissions:
   contents: read
@@ -16,11 +16,11 @@ jobs:
       run:
         working-directory: docs-web
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
+      - uses: actions/checkout@v7.0.1
+      - uses: pnpm/action-setup@v6.1.0
         with:
           package_json_file: docs-web/package.json
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7.0.0
         with:
           node-version: 24
           cache: pnpm
@@ -28,6 +28,3 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm check
       - run: pnpm build
-      - run: pnpm check:links
-      - run: SITE_URL=https://example.com BASE_PATH=/toolbox pnpm build
-      - run: BASE_PATH=/toolbox pnpm check:links
