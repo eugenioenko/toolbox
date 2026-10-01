@@ -6,6 +6,7 @@ import (
 	"errors"
 	"fmt"
 	"log"
+	"net"
 	"net/http"
 	"slices"
 	"strings"
@@ -78,10 +79,23 @@ func NewInteractshBackend(serverURL, authToken string, provider store.Provider) 
 		serverURL: serverURL,
 		authToken: authToken,
 		httpClient: &http.Client{
+			Timeout: 10 * time.Second,
+			Transport: &userAgentTransport{
+				base: &http.Transport{
+					DialContext: (&net.Dialer{
+						Timeout:   5 * time.Second,
+						KeepAlive: 30 * time.Second,
+					}).DialContext,
+					TLSHandshakeTimeout:   5 * time.Second,
+					ResponseHeaderTimeout: 10 * time.Second,
+					IdleConnTimeout:       120 * time.Second,
+					MaxIdleConns:          20,
+					MaxIdleConnsPerHost:   10,
+				},
+			},
 			CheckRedirect: func(*http.Request, []*http.Request) error {
 				return http.ErrUseLastResponse
 			},
-			Timeout: 10 * time.Second,
 		},
 		oastStore: store.NewOastStore(oastStorage),
 		sessions:  make(map[string]*oastSession),

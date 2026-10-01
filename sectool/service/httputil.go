@@ -50,6 +50,16 @@ var (
 	transferEncodingPresenceRe = regexp.MustCompile(`(?im)^Transfer-Encoding[ \t]*:`)
 )
 
+// userAgentTransport wraps an http.RoundTripper to stamp the toolbox User-Agent on every request.
+type userAgentTransport struct {
+	base http.RoundTripper
+}
+
+func (t *userAgentTransport) RoundTrip(req *http.Request) (*http.Response, error) {
+	req.Header.Set("User-Agent", config.UserAgent())
+	return t.base.RoundTrip(req)
+}
+
 // normalizePath replaces dynamic path segments (numeric IDs, UUIDs, hex IDs 24+ chars)
 // with * for grouping. Query strings are preserved.
 func normalizePath(path string) string {
